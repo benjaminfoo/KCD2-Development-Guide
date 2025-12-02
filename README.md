@@ -87,5 +87,57 @@ A working folder structure, using linux, looks like this:
 After that, you should be able to start the development version of the game or the sandbox editor:
 ![screen_crytek_sandbox.png](imgs/screen_crytek_sandbox.png)
 
+## Creating a new mod
+See: https://warhorse.youtrack.cloud/articles/KM-A-55/The-Modding-Tools#workspace-setup for detailed instructions on how to create a new mod.
+
+## How To 
+
+### Create a new console command
+If you want to create a new console command, execute the following steps:
+
+1. Create a new lua function, or reuse an existing one, like:
+```
+function mySuperTest()
+    Game.SendInfoText("mySuperTest enabled!", false)
+end
+```
+
+2. Create a console commande: 
+ - The first parameter is the name of the new console command
+ - The second parameter is the name of the lua function, dont forget the brackets!
+ - The third parameter is a description of the command
+```
+System.AddCCommand("mySuperNewConsoleCommand", "mySuperTest()", "Activate or deactivate the architect mod.")
+```
+
+### Bind a key to a lua function
+If you want to execute a lua function after a user pressed a key, you can use the bind command.
+Note: We're calling a command, which is outside of the lua context, so we need to prepend the command with the #-character. (You can also call lua functions from the console by prepending them with a #)
+```
+System.ExecuteCommand("bind mwheel_up #mySuperTest()")
+```
+
+### Bind a key to a console command
+If you want to execute a conole command after a user pressed a key, you can also use the bind command.
+Note: We are calling the bind command from the lua context, so we need to use System.ExecuteCommand - 
+so when the user presses f5, we're not calling the lua function directly, but the console command created within the previous example.
+
+```
+System.ExecuteCommand("bind 'f5' mySuperNewConsoleCommand")
+```
+
+
+## Porting mods from KCD1 to KCD2
+
+### Code changes
+- The function "vecScale" is now called "VectorUtils.Scale"
+- The functions "MakeUsable", "AddHeavyObjectProperty", "AddInteractLargeObjectProperty", "SetupCollisionFiltering" are now part of the EntityCommon-Table, 
+  so you have to prefix them with "EntityCommon.", like "EntityCommon.MakeUsable(entity)"
+
+## Tips
+- (Linux) If you want to locate all files with a specific extension, for example, all cgf-files, you can use "find . -type f -iname '*cgf'" in the terminal.
+- If you want to reload the source code, you can use the "Reload Source" button in the editor.
+
 ## Further reading: 
-- https://warhorse.youtrack.cloud/articles/KM-A-55/The-Modding-Tools
+- WarHorse guide for creating mods: https://warhorse.youtrack.cloud/articles/KM-A-55/The-Modding-Tools
+- CryTek API for entities: https://www.cryengine.com/docs/static/engines/cryengine-5/categories/23756813/pages/23306601
