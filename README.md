@@ -5,7 +5,7 @@ which contains in-depth resources and information on technical aspects of the ga
 
 ## Getting started
 To get started, you have to download the [official modding tools](steam://open/games/details/2429020) via steam.
-- for further information check out https://warhorse.youtrack.cloud/articles/KM-A-55/The-Modding-Tools.
+For further information check out [Modding Kingdom Come: Deliverance 2 - Wiki](https://warhorse.youtrack.cloud/articles/KM-A-55/The-Modding-Tools).
 
 The modding tools contain two important tools: 
 - The sandbox editor of the cryengine (https://www.cryengine.com/)
