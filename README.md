@@ -7,7 +7,7 @@ which contains in-depth resources and information on technical aspects of the ga
 To get started, you have to download the [official modding tools](steam://open/games/details/2429020) via steam.
 - for further information check out https://warhorse.youtrack.cloud/articles/KM-A-55/The-Modding-Tools.
 
-The modding tools contain two important things: 
+The modding tools contain two important tools: 
 - The sandbox editor of the cryengine (https://www.cryengine.com/)
   - The editor allows us to modify the game assets and create new levels, which is very useful for modding purposes
   - For lua coding, its possible to reload the source, instead of loading the full game completely every time one wants to test some technical aspect
@@ -92,6 +92,13 @@ See: https://warhorse.youtrack.cloud/articles/KM-A-55/The-Modding-Tools#workspac
 
 ## How To 
 
+### Extract a .pak - file
+Just use any archive manager, like ark or 7zip.
+
+### Create a .pak - file
+A *.pak-file can be created any compression software which supports the selection of a compression method and level.
+I have created *.pak-files by using Ark, using deflate as the compression method on the lowest compression level.
+
 ### Create a new console command
 If you want to create a new console command, execute the following steps:
 
@@ -141,3 +148,4 @@ System.ExecuteCommand("bind 'f5' mySuperNewConsoleCommand")
 ## Further reading: 
 - WarHorse guide for creating mods: https://warhorse.youtrack.cloud/articles/KM-A-55/The-Modding-Tools
 - CryTek API for entities: https://www.cryengine.com/docs/static/engines/cryengine-5/categories/23756813/pages/23306601
+- List of Key Names: https://www.cryengine.com/docs/static/engines/cryengine-5/categories/23756813/pages/23306384
